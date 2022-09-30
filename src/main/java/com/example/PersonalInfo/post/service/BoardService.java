@@ -78,7 +78,7 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
-/*    *//* search *//*
+
     @Transactional
     public List<BoardDto> searchPosts(String keyword) {
         List<Board> boards = boardRepository.findByTitleContaining(keyword);
@@ -107,6 +107,6 @@ public class BoardService {
                 .modifiedTime(board.getModifiedTime())
                 .build();
 
-    }*/
+    }
 
 }
