@@ -1,5 +1,6 @@
 package com.example.PersonalInfo.post.domain;
 
+import com.example.PersonalInfo.post.dto.BoardDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,12 +32,25 @@ public class Board extends BaseTimeEntity{
     @Column(nullable = false)
     private String introduction;
 
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
+    private String contents;
+
     @Builder
-    public Board(Long id, String name, String depart, String age,String introduction){
+    public Board(Long id, String name, String depart, String age,String introduction,String title, String contents){
         this.id=id;
         this.name=name;
         this.depart=depart;
         this.age=age;
         this.introduction=introduction;
+        this.title = title;
+        this.contents = contents;
+    }
+
+    public void update(BoardDto boardDto){
+        this.title = boardDto.getTitle();
+        this.contents = boardDto.getContents();
     }
 }
